@@ -8,6 +8,7 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [emailId, setEmailId] = useState("rohit@gmail.com");
   const [password, setPassword] = useState("Rohit@123");
+  const [error, setError] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,7 +23,8 @@ const Login = () => {
         return navigate("/");
       }
       catch(err){
-        console.log(err);       
+        setError(err?.response?.data || "Invalid Credentials")
+        //console.log(err);       
       }
   }
   
@@ -32,14 +34,15 @@ const Login = () => {
         <div className="card-body">
           <h2 className="card-title justify-center">LOGIN</h2>
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Email Id</legend>
+            <legend className="fieldset-legend">Email ID</legend>
             <input type="text" className="input" value={emailId} onChange={(e)=> setEmailId(e.target.value)}/>
           </fieldset>
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Password</legend>
             <input type="text" className="input" value={password} onChange={(e)=> setPassword(e.target.value)}/>
           </fieldset>
-          <div className="card-actions justify-center py-4">
+          <p className="text-red-700 flex justify-center">{error}</p>
+          <div className="card-actions justify-center py-2">
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </div>
           <div>
