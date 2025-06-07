@@ -3,7 +3,7 @@ const UserCard = (props) => {
   //console.log(user);
 
   return (
-    <div className="card bg-base-300 w-96 shadow-sm">
+    <div className="card bg-base-300 w-72 shadow-sm">
       <figure>
         <img src={user.photoUrl} alt={user.firstName} />
       </figure>
