@@ -8,16 +8,20 @@ const Requests = () => {
   const dispatch = useDispatch();
   const requests = useSelector((store) => store.requests);
 
-  const reviewRequest = async(status, _id) =>{
-    try{
-      const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, {} , {withCredentials:true})
-      
-      dispatch(removeRequest(_id))
-    }
-    catch(err){
-      console.log(err);    
-    }
+  const reviewRequest = async (status, _id) => {
+  try {
+    const res = await axios.post(
+      `${BASE_URL}/request/review/${status}/${_id}`,
+      {},
+      { withCredentials: true }
+    );
+    console.log("Removing request with id:", _id);
+    dispatch(removeRequest(_id));
+  } catch (err) {
+    console.log("Review request error:", err);
   }
+};
+
 
   const fetchRequests = async () => {
     try {
