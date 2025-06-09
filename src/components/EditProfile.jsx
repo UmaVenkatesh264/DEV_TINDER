@@ -53,7 +53,7 @@ const EditProfile = ({ user }) => {
 
   return (
     <>
-    <div className="flex justify-center items-center my-3 gap-10 bg-base-100">
+    <div className="flex justify-center items-center my-3 gap-10 bg-base-100 pb-24">
   {/* First Card (Edit Profile Form) */}
   <div className="card bg-base-300 w-72 shadow-xl">
     <div className="card-body">
