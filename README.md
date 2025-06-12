@@ -94,7 +94,7 @@ for this we need to edit the nginx config, the open it -> sudo nano /etc/nginx/s
 
     nginx config : 
 
-    server_name 43.204.96.49;
+    server_name 16.176.229.78;
 
     location /api/ {
         proxy_pass http://localhost:7777/;  # Pass the request to the Node.js app
